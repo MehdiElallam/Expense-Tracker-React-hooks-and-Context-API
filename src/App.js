@@ -4,19 +4,20 @@ import Balance from './components/Balance';
 import IncomeExpenseTab from './components/IncomeExpenseTab';
 import TransactionList from './components/TransactionList';
 import NewTransaction from './components/NewTransaction'
+import { GlobalProvider } from './context/GlobalContext'
 
 
 function App() {
   return (
-    <>
-      <Header />
-      <div className="container" >
-        <Balance />
-        <IncomeExpenseTab />
-        <TransactionList />
-        <NewTransaction />
-      </div>
-    </>
+    <GlobalProvider>
+        <Header />
+        <div className="container" >
+          <Balance />
+          <IncomeExpenseTab />
+          <TransactionList />
+          <NewTransaction />
+        </div>
+    </GlobalProvider>
   );
 }
 
