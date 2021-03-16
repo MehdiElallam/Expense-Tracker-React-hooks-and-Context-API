@@ -11,11 +11,11 @@ export default function NewTransaction() {
             <h3>Add new transaction</h3>
             <form id="form">
                 <div className="form-control">
-                <label for="text">Text</label>
+                <label htmlFor="text">Text</label>
                 <input type="text" value={text} onChange={(e) => { setText(e.target.value) }} id="text" placeholder="Enter text..." />
                 </div>
                 <div className="form-control">
-                <label for="amount"
+                <label htmlFor="amount"
                     >Amount <br />
                     (negative - expense, positive - income)</label
                 >

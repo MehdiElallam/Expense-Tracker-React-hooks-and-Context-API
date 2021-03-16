@@ -1,10 +1,13 @@
 import React from 'react'
 
-export default function Transaction(props) {
+export default function Transaction({text, amount}) {
+    
+    const sign = amount < 0 ? '- ' : ''
     
     return (
         <li className="minus">
-            {props.type} <span>-${props.amount}</span><button className="delete-btn">x</button>
+            {text} <span>{sign} ${Math.abs(amount)}</span>
+            <button className="delete-btn">x</button>
         </li>
     )
 }
