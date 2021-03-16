@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import Transaction from './Transaction';
-import { GlobalContext } from '../context/GlobalContext'
+import { AppContext } from '../context/AppContext'
 
 export default function TransactionList() {
     
-    const { transactions } = useContext(GlobalContext);
+    const { transactions } = useContext(AppContext);
 
     return (
         <>
@@ -12,7 +12,7 @@ export default function TransactionList() {
             <ul id="list" className="list">
                 {
                     transactions.map(transaction => (
-                        <Transaction key={transaction.id} text={transaction.text} amount={transaction.amount}/>
+                        <Transaction key={transaction.id} transaction={transaction} />
                     ))
                 }
                 
