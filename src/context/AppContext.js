@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from 'react'
-import AppReducer from './AppReducer'
+import AppReducer from './reducers/AppReducer'
 
 const initialState = {
     transactions : [
@@ -17,31 +17,13 @@ export const AppContext = createContext(initialState);
 
 export const ContextProvider = ({children}) => {
 
-    const [state, dispatch] = useReducer(AppReducer, initialState)
-
-    function addTransac(transaction){
-        
-        dispatch({
-            type : 'ADD_TRANSAC',
-            payload : transaction
-        })
-    }
-    
-    function deleteTransac(id){
-
-        dispatch({
-            type : 'DELETE_TRANSAC',
-            payload : id
-        })
-
-    }
+    const [TransactionState, Transactiondispatch] = useReducer(AppReducer, initialState)
 
     return (
         <AppContext.Provider 
             value={{
-                transactions: state.transactions,
-                addTransac,
-                deleteTransac
+                transactions: TransactionState.transactions,
+                Transactiondispatch
             }}
         >
             {children}

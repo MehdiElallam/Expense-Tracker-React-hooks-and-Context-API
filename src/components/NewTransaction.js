@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { AppContext } from '../context/AppContext';
+import { addTransac } from '../context/actions'
 
 export default function NewTransaction() {
     
@@ -8,7 +9,7 @@ export default function NewTransaction() {
     const [ textError, setTextError ] = useState('');
     const [ amountError, setAmountError ] = useState('');
 
-    const { addTransac, transactions } = useContext(AppContext)
+    const { Transactiondispatch, transactions } = useContext(AppContext)
 
     const addTransaction = (e) => {
         e.preventDefault();
@@ -19,7 +20,7 @@ export default function NewTransaction() {
                 text,
                 amount
             }
-            addTransac(transaction)
+            addTransac(transaction)(Transactiondispatch)
         }else{
             text === '' ? setTextError('The text field cannot be empty') : setTextError('')
             amount === 0 ? setAmountError('The amount cannot be null') : setAmountError('')
